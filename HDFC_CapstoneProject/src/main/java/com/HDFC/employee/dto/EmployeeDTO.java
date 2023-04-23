@@ -4,37 +4,28 @@ import java.time.LocalDate;
 
 public class EmployeeDTO {
 
-	
-	private int employeeID;
-	private int employeeName;
+	private String employeeName;
 	private LocalDate dateOfBirth;
 	
 	
 	
-	public EmployeeDTO(int employeeID, int employeeName, LocalDate dateOfBirth) {
+	public EmployeeDTO(String employeeName, LocalDate dateOfBirth) {
 		super();
-		this.employeeID = employeeID;
+
 		this.employeeName = employeeName;
 		this.dateOfBirth = dateOfBirth;
 	}
 
 
-	public int getEmployeeID() {
-		return employeeID;
-	}
 
 
-	public void setEmployeeID(int employeeID) {
-		this.employeeID = employeeID;
-	}
 
-
-	public int getEmployeeName() {
+	public String getEmployeeName() {
 		return employeeName;
 	}
 
 
-	public void setEmployeeName(int employeeName) {
+	public void setEmployeeName(String employeeName) {
 		this.employeeName = employeeName;
 	}
 

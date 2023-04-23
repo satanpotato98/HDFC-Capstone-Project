@@ -3,6 +3,7 @@ package com.HDFC.employee.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.HDFC.employee.dto.EmployeeDTO;
 import com.HDFC.employee.entity.Employee;
 import com.HDFC.employee.exception.InvalidEmployeeIdException;
 import com.HDFC.employee.repository.EmployeeRepo;
@@ -21,6 +22,16 @@ public class EmployeeServiceImp implements IEmployeeService {
 			throw new InvalidEmployeeIdException();
 		}
 		else return emp;
+	}
+
+	@Override
+	public Employee addEmployee(EmployeeDTO dto) {
+		
+		Employee emp=new Employee();
+		emp.setDateOfBirth(dto.getDateOfBirth());
+		emp.setEmployeeName(dto.getEmployeeName());
+
+		return employeeRepo.save(emp);
 	}
 
 }
