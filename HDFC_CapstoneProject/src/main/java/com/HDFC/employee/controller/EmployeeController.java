@@ -1,5 +1,6 @@
 package com.HDFC.employee.controller;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +18,10 @@ public class EmployeeController {
 	@Autowired
 	IEmployeeService empService;
 
-	@GetMapping("/get./{if}")
+	@GetMapping("/get/{id}")
 	public Employee findByID(@PathVariable int id) throws InvalidEmployeeIdException {
+		
+		
 		return empService.getEmployeeById(id);
 	}
 }

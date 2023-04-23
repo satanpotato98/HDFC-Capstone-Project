@@ -8,6 +8,7 @@ public class HdfcCapstoneProjectApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(HdfcCapstoneProjectApplication.class, args);
+		
 	}
 
 }
