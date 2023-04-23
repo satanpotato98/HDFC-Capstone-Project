@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
 
 @Entity
 public class Employee {
@@ -13,11 +15,13 @@ public class Employee {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int employeeID;
+	@NotNull
 	private String employeeName;
+	@NotNull @Past
 	private LocalDate dateOfBirth;
 	
 	public Employee() {
-		// TODO Auto-generated constructor stub
+		super();	
 	}
 	
 	
