@@ -3,7 +3,9 @@ package com.HDFC.employee.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.HDFC.employee.VO.EmployeeVO;
 import com.HDFC.employee.dto.EmployeeDTO;
+import com.HDFC.employee.encrypter.Aes256;
 import com.HDFC.employee.entity.Employee;
 import com.HDFC.employee.exception.InvalidEmployeeIdException;
 import com.HDFC.employee.repository.EmployeeRepo;
@@ -15,13 +17,20 @@ public class EmployeeServiceImp implements IEmployeeService {
 	EmployeeRepo employeeRepo;
 
 	@Override
-	public Employee getEmployeeById(int id) throws InvalidEmployeeIdException {
+	public EmployeeVO getEmployeeById(int id) throws InvalidEmployeeIdException {
 		// TODO Auto-generated method stub
 		Employee emp=employeeRepo.findById(id).orElse(null);
 		if(emp==null) {
 			throw new InvalidEmployeeIdException();
 		}
-		else return emp;
+		else {
+			EmployeeVO vo=new EmployeeVO();
+			String x=Aes256.encrypt(emp.getDateOfBirth().toString());
+			vo.setDateOfBirth(x);
+			vo.setEmployeeID(id);
+			vo.setEmployeeName(emp.getEmployeeName());
+			return vo;
+		}
 	}
 
 	@Override

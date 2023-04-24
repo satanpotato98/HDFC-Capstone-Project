@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.HDFC.employee.VO.EmployeeVO;
 import com.HDFC.employee.dto.EmployeeDTO;
 import com.HDFC.employee.entity.Employee;
 import com.HDFC.employee.exception.InvalidEmployeeIdException;
@@ -24,7 +25,7 @@ public class EmployeeController {
 	IEmployeeService empService;
 
 	@GetMapping("/get/{id}")
-	public Employee findByID(@PathVariable int id) throws InvalidEmployeeIdException {
+	public EmployeeVO findByID(@PathVariable int id) throws InvalidEmployeeIdException {
 		
 		
 		return empService.getEmployeeById(id);
