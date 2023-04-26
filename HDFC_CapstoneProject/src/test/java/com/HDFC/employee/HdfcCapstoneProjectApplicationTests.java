@@ -8,9 +8,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.HDFC.employee.entity.Employee;
-import com.HDFC.employee.exception.InvalidEmployeeIdException;
-import com.HDFC.employee.service.IEmployeeService;
+import com.hdfc.employee.entity.Employee;
+import com.hdfc.employee.exception.InvalidEmployeeIdException;
+import com.hdfc.employee.service.IEmployeeService;
 
 @SpringBootTest
 class HdfcCapstoneProjectApplicationTests {
