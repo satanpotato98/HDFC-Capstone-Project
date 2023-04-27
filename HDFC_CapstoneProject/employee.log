@@ -3095,3 +3095,29 @@ Caused by: org.hibernate.HibernateException: Unable to determine Dialect without
 2023-04-27T14:42:36.262+05:30  INFO 20361 --- [RMI TCP Connection(7)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-04-27T14:42:36.265+05:30  INFO 20361 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-04-27T14:42:36.268+05:30  INFO 20361 --- [RMI TCP Connection(7)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-27T16:27:16.907+05:30  INFO 7349 --- [main] c.h.e.HdfcCapstoneProjectApplication     : Starting HdfcCapstoneProjectApplication using Java 17.0.5 with PID 7349 (/home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject/bin/main started by raj in /home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject)
+2023-04-27T16:27:16.915+05:30  INFO 7349 --- [main] c.h.e.HdfcCapstoneProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-04-27T16:27:17.879+05:30  INFO 7349 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-27T16:27:17.976+05:30  INFO 7349 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90 ms. Found 1 JPA repository interfaces.
+2023-04-27T16:27:18.469+05:30  INFO 7349 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (https)
+2023-04-27T16:27:18.479+05:30  INFO 7349 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-27T16:27:18.479+05:30  INFO 7349 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-04-27T16:27:18.547+05:30  INFO 7349 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-27T16:27:18.547+05:30  INFO 7349 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1595 ms
+2023-04-27T16:27:18.758+05:30  INFO 7349 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-27T16:27:18.897+05:30  INFO 7349 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-04-27T16:27:19.378+05:30  INFO 7349 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-27T16:27:19.549+05:30  INFO 7349 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@69a373fd
+2023-04-27T16:27:19.553+05:30  INFO 7349 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-27T16:27:19.590+05:30  INFO 7349 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-04-27T16:27:20.368+05:30  INFO 7349 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-27T16:27:20.373+05:30  INFO 7349 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27T16:27:20.561+05:30  WARN 7349 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-27T16:27:21.092+05:30  INFO 7349 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-9090], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject/bin/main/employee.p12] using alias [employee_ssl] and with trust store [null]
+2023-04-27T16:27:21.126+05:30  INFO 7349 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (https) with context path ''
+2023-04-27T16:27:21.135+05:30  INFO 7349 --- [main] c.h.e.HdfcCapstoneProjectApplication     : Started HdfcCapstoneProjectApplication in 4.749 seconds (process running for 5.505)
+2023-04-27T16:27:25.524+05:30  INFO 7349 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-04-27T16:27:25.533+05:30  INFO 7349 --- [RMI TCP Connection(2)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-27T16:27:25.546+05:30  INFO 7349 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-27T16:27:25.549+05:30  INFO 7349 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-27T16:27:25.555+05:30  INFO 7349 --- [RMI TCP Connection(2)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
