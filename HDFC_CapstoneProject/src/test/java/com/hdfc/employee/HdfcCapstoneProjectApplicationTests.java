@@ -1,4 +1,4 @@
-package com.HDFC.employee;
+package com.hdfc.employee;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

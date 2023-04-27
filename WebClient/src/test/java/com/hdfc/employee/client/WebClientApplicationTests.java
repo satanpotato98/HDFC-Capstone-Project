@@ -1,4 +1,4 @@
-package com.HDFC.employee.client;
+package com.hdfc.employee.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
