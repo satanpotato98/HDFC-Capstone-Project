@@ -48,7 +48,7 @@ public class Clientconfig {
 			@Override
 			public boolean verify(String s, SSLSession sslsession) {
 				// TODO Auto-generated method stub
-				return "localhost".equalsIgnoreCase(s) || "127.0.0.1".equals(s);
+				return "localhost".equalsIgnoreCase(s) || "192.168.49.2".equals(s);
 			}
 	    }
 
