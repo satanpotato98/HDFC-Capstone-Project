@@ -1,0 +1,277 @@
+Started by user shashwat
+Running as SYSTEM
+Building in workspace /home/raj/.jenkins/workspace/Employee
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] Done
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/satanpotato98/HDFC-Capstone-Project.git
+ > git init /home/raj/.jenkins/workspace/Employee # timeout=10
+Fetching upstream changes from https://github.com/satanpotato98/HDFC-Capstone-Project.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.39.2'
+ > git fetch --tags --force --progress -- https://github.com/satanpotato98/HDFC-Capstone-Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/satanpotato98/HDFC-Capstone-Project.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 048e6fc73e1d3b9c3d7245d4dc9f781233668eaa (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 048e6fc73e1d3b9c3d7245d4dc9f781233668eaa # timeout=10
+Commit message: "YAML files for K8"
+ > git rev-list --no-walk 48c711a35f5a9fa5de5d34055b7f1411cd5e0c5d # timeout=10
+[Employee] $ /bin/sh -xe /tmp/jenkins14252180603985042207.sh
++ cd HDFC_CapstoneProject
++ ./gradlew clean build
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+Starting a Gradle Daemon (subsequent builds will be faster)
+> Task :clean UP-TO-DATE
+> Task :compileJava
+> Task :processResources
+> Task :classes
+> Task :resolveMainClassName
+> Task :bootJar
+> Task :jar
+> Task :assemble
+> Task :compileTestJava
+> Task :processTestResources NO-SOURCE
+> Task :testClasses
+
+> Task :test
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+
+> Task :check
+> Task :build
+
+BUILD SUCCESSFUL in 27s
+8 actionable tasks: 7 executed, 1 up-to-date
++ ./gradlew bootBuildImage --imageName=employee
+Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName UP-TO-DATE
+> Task :bootJar UP-TO-DATE
+
+> Task :bootBuildImage
+Building image 'docker.io/library/employee:latest'
+
+ > Pulling builder image 'docker.io/paketobuildpacks/builder:base' ..................................................
+ > Pulled builder image 'paketobuildpacks/builder@sha256:6f36759e32b4f14ac345fc2b988277437a5ddb43a086d7b8720d8740ce279988'
+ > Pulling run image 'docker.io/paketobuildpacks/run:base-cnb' ..................................................
+ > Pulled run image 'paketobuildpacks/run@sha256:f8dfc4b892edd3185d02e21d1145ebab0e713065837f7d42cbc9577c7489812e'
+ > Executing lifecycle version v0.16.1
+ > Using build cache volume 'pack-cache-a90947dfbf60.build'
+
+ > Running creator
+    [creator]     ===> ANALYZING
+    [creator]     Restoring data for SBOM from previous image
+    [creator]     ===> DETECTING
+    [creator]     6 of 26 buildpacks participating
+    [creator]     paketo-buildpacks/ca-certificates   3.6.1
+    [creator]     paketo-buildpacks/bellsoft-liberica 10.2.1
+    [creator]     paketo-buildpacks/syft              1.29.0
+    [creator]     paketo-buildpacks/executable-jar    6.6.3
+    [creator]     paketo-buildpacks/dist-zip          5.5.2
+    [creator]     paketo-buildpacks/spring-boot       5.23.0
+    [creator]     ===> RESTORING
+    [creator]     Restoring metadata for "paketo-buildpacks/ca-certificates:helper" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/bellsoft-liberica:helper" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/bellsoft-liberica:java-security-properties" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/bellsoft-liberica:jre" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/syft:syft" from cache
+    [creator]     Restoring metadata for "paketo-buildpacks/spring-boot:helper" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/spring-boot:spring-cloud-bindings" from app image
+    [creator]     Restoring metadata for "paketo-buildpacks/spring-boot:web-application-type" from app image
+    [creator]     Restoring data for "paketo-buildpacks/syft:syft" from cache
+    [creator]     Restoring data for SBOM from cache
+    [creator]     ===> BUILDING
+    [creator]     
+    [creator]     Paketo Buildpack for CA Certificates 3.6.1
+    [creator]       https://github.com/paketo-buildpacks/ca-certificates
+    [creator]       Launch Helper: Reusing cached layer
+    [creator]     
+    [creator]     Paketo Buildpack for BellSoft Liberica 10.2.1
+    [creator]       https://github.com/paketo-buildpacks/bellsoft-liberica
+    [creator]       Build Configuration:
+    [creator]         $BP_JVM_JLINK_ARGS           --no-man-pages --no-header-files --strip-debug --compress=1  configure custom link arguments (--output must be omitted)
+    [creator]         $BP_JVM_JLINK_ENABLED        false                                                        enables running jlink tool to generate custom JRE
+    [creator]         $BP_JVM_TYPE                 JRE                                                          the JVM type - JDK or JRE
+    [creator]         $BP_JVM_VERSION              17                                                           the Java version
+    [creator]       Launch Configuration:
+    [creator]         $BPL_DEBUG_ENABLED           false                                                        enables Java remote debugging support
+    [creator]         $BPL_DEBUG_PORT              8000                                                         configure the remote debugging port
+    [creator]         $BPL_DEBUG_SUSPEND           false                                                        configure whether to suspend execution until a debugger has attached
+    [creator]         $BPL_HEAP_DUMP_PATH                                                                       write heap dumps on error to this path
+    [creator]         $BPL_JAVA_NMT_ENABLED        true                                                         enables Java Native Memory Tracking (NMT)
+    [creator]         $BPL_JAVA_NMT_LEVEL          summary                                                      configure level of NMT, summary or detail
+    [creator]         $BPL_JFR_ARGS                                                                             configure custom Java Flight Recording (JFR) arguments
+    [creator]         $BPL_JFR_ENABLED             false                                                        enables Java Flight Recording (JFR)
+    [creator]         $BPL_JMX_ENABLED             false                                                        enables Java Management Extensions (JMX)
+    [creator]         $BPL_JMX_PORT                5000                                                         configure the JMX port
+    [creator]         $BPL_JVM_HEAD_ROOM           0                                                            the headroom in memory calculation
+    [creator]         $BPL_JVM_LOADED_CLASS_COUNT  35% of classes                                               the number of loaded classes in memory calculation
+    [creator]         $BPL_JVM_THREAD_COUNT        250                                                          the number of threads in memory calculation
+    [creator]         $JAVA_TOOL_OPTIONS                                                                        the JVM launch flags
+    [creator]         Using Java version 17 extracted from MANIFEST.MF
+    [creator]       BellSoft Liberica JRE 17.0.7: Contributing to layer
+    [creator]         Downloading from https://github.com/bell-sw/Liberica/releases/download/17.0.7+7/bellsoft-jre17.0.7+7-linux-amd64.tar.gz
+    [creator]         Verifying checksum
+    [creator]         Expanding to /layers/paketo-buildpacks_bellsoft-liberica/jre
+    [creator]         Adding 124 container CA certificates to JVM truststore
+    [creator]         Writing env.launch/BPI_APPLICATION_PATH.default
+    [creator]         Writing env.launch/BPI_JVM_CACERTS.default
+    [creator]         Writing env.launch/BPI_JVM_CLASS_COUNT.default
+    [creator]         Writing env.launch/BPI_JVM_SECURITY_PROVIDERS.default
+    [creator]         Writing env.launch/JAVA_HOME.default
+    [creator]         Writing env.launch/JAVA_TOOL_OPTIONS.append
+    [creator]         Writing env.launch/JAVA_TOOL_OPTIONS.delim
+    [creator]         Writing env.launch/MALLOC_ARENA_MAX.default
+    [creator]       Launch Helper: Reusing cached layer
+    [creator]       Java Security Properties: Reusing cached layer
+    [creator]     
+    [creator]     Paketo Buildpack for Syft 1.29.0
+    [creator]       https://github.com/paketo-buildpacks/syft
+    [creator]         Downloading from https://github.com/anchore/syft/releases/download/v0.79.0/syft_0.79.0_linux_amd64.tar.gz
+    [creator]         Verifying checksum
+    [creator]         Writing env.build/SYFT_CHECK_FOR_APP_UPDATE.default
+    [creator]     
+    [creator]     Paketo Buildpack for Executable JAR 6.6.3
+    [creator]       https://github.com/paketo-buildpacks/executable-jar
+    [creator]       Class Path: Contributing to layer
+    [creator]         Writing env/CLASSPATH.delim
+    [creator]         Writing env/CLASSPATH.prepend
+    [creator]       Process types:
+    [creator]         executable-jar: java org.springframework.boot.loader.JarLauncher (direct)
+    [creator]         task:           java org.springframework.boot.loader.JarLauncher (direct)
+    [creator]         web:            java org.springframework.boot.loader.JarLauncher (direct)
+    [creator]     
+    [creator]     Paketo Buildpack for Spring Boot 5.23.0
+    [creator]       https://github.com/paketo-buildpacks/spring-boot
+    [creator]       Build Configuration:
+    [creator]         $BP_SPRING_CLOUD_BINDINGS_DISABLED   false  whether to contribute Spring Boot cloud bindings support
+    [creator]       Launch Configuration:
+    [creator]         $BPL_SPRING_CLOUD_BINDINGS_DISABLED  false  whether to auto-configure Spring Boot environment properties from bindings
+    [creator]         $BPL_SPRING_CLOUD_BINDINGS_ENABLED   true   Deprecated - whether to auto-configure Spring Boot environment properties from bindings
+    [creator]       Creating slices from layers index
+    [creator]         dependencies (39.6 MB)
+    [creator]         spring-boot-loader (269.4 KB)
+    [creator]         snapshot-dependencies (0.0 B)
+    [creator]         application (74.7 KB)
+    [creator]       Launch Helper: Reusing cached layer
+    [creator]       Spring Cloud Bindings 1.11.0: Reusing cached layer
+    [creator]       Web Application Type: Reusing cached layer
+    [creator]       4 application slices
+    [creator]       Image labels:
+    [creator]         org.opencontainers.image.title
+    [creator]         org.opencontainers.image.version
+    [creator]         org.springframework.boot.version
+    [creator]     ===> EXPORTING
+    [creator]     Reusing layer 'paketo-buildpacks/ca-certificates:helper'
+    [creator]     Reusing layer 'paketo-buildpacks/bellsoft-liberica:helper'
+    [creator]     Reusing layer 'paketo-buildpacks/bellsoft-liberica:java-security-properties'
+    [creator]     Reusing layer 'paketo-buildpacks/bellsoft-liberica:jre'
+    [creator]     Reusing layer 'paketo-buildpacks/executable-jar:classpath'
+    [creator]     Reusing layer 'paketo-buildpacks/spring-boot:helper'
+    [creator]     Reusing layer 'paketo-buildpacks/spring-boot:spring-cloud-bindings'
+    [creator]     Reusing layer 'paketo-buildpacks/spring-boot:web-application-type'
+    [creator]     Reusing layer 'buildpacksio/lifecycle:launch.sbom'
+    [creator]     Reusing 5/5 app layer(s)
+    [creator]     Reusing layer 'buildpacksio/lifecycle:launcher'
+    [creator]     Reusing layer 'buildpacksio/lifecycle:config'
+    [creator]     Reusing layer 'buildpacksio/lifecycle:process-types'
+    [creator]     Adding label 'io.buildpacks.lifecycle.metadata'
+    [creator]     Adding label 'io.buildpacks.build.metadata'
+    [creator]     Adding label 'io.buildpacks.project.metadata'
+    [creator]     Adding label 'org.opencontainers.image.title'
+    [creator]     Adding label 'org.opencontainers.image.version'
+    [creator]     Adding label 'org.springframework.boot.version'
+    [creator]     Setting default process type 'web'
+    [creator]     Saving docker.io/library/employee:latest...
+    [creator]     *** Images (55b5fca0e452):
+    [creator]           docker.io/library/employee:latest
+    [creator]     Reusing cache layer 'paketo-buildpacks/syft:syft'
+    [creator]     Reusing cache layer 'buildpacksio/lifecycle:cache.sbom'
+
+Successfully built image 'docker.io/library/employee:latest'
+
+
+BUILD SUCCESSFUL in 2m 59s
+5 actionable tasks: 1 executed, 4 up-to-date
++ docker tag employee satanpotato/employee:latest
++ docker push satanpotato/employee:latest
+The push refers to repository [docker.io/satanpotato/employee]
+1dc94a70dbaa: Preparing
+cc14ff3e32e3: Preparing
+f4475860d332: Preparing
+5f70bf18a086: Preparing
+74119c406c77: Preparing
+5f70bf18a086: Preparing
+0345504805f0: Preparing
+3cbc31ec8862: Preparing
+5d68794ac8f1: Preparing
+fcc507beb4cc: Preparing
+30a03cb7ff3f: Preparing
+bdffd30dc8fd: Preparing
+7fbc97c38fad: Preparing
+f649a31bd1d8: Preparing
+ec0381c8f321: Preparing
+821b1d46a382: Preparing
+6b2e6eafd42f: Preparing
+019ce594f2e1: Preparing
+025b439bc7f8: Preparing
+451264764f87: Preparing
+0345504805f0: Waiting
+386af292fa49: Preparing
+28894dd426e6: Preparing
+3cbc31ec8862: Waiting
+5e390e8445ae: Preparing
+b7e0fa7bfe7f: Preparing
+5d68794ac8f1: Waiting
+fcc507beb4cc: Waiting
+7fbc97c38fad: Waiting
+30a03cb7ff3f: Waiting
+f649a31bd1d8: Waiting
+bdffd30dc8fd: Waiting
+451264764f87: Waiting
+ec0381c8f321: Waiting
+386af292fa49: Waiting
+821b1d46a382: Waiting
+28894dd426e6: Waiting
+6b2e6eafd42f: Waiting
+5e390e8445ae: Waiting
+019ce594f2e1: Waiting
+b7e0fa7bfe7f: Waiting
+025b439bc7f8: Waiting
+1dc94a70dbaa: Layer already exists
+74119c406c77: Layer already exists
+f4475860d332: Layer already exists
+5f70bf18a086: Layer already exists
+cc14ff3e32e3: Layer already exists
+3cbc31ec8862: Layer already exists
+5d68794ac8f1: Layer already exists
+0345504805f0: Layer already exists
+fcc507beb4cc: Layer already exists
+30a03cb7ff3f: Layer already exists
+bdffd30dc8fd: Layer already exists
+7fbc97c38fad: Layer already exists
+821b1d46a382: Layer already exists
+f649a31bd1d8: Layer already exists
+ec0381c8f321: Layer already exists
+6b2e6eafd42f: Layer already exists
+025b439bc7f8: Layer already exists
+019ce594f2e1: Layer already exists
+451264764f87: Layer already exists
+386af292fa49: Layer already exists
+5e390e8445ae: Layer already exists
+b7e0fa7bfe7f: Layer already exists
+28894dd426e6: Layer already exists
+latest: digest: sha256:bc9a5246659a8fdb046fd05b9786698ffffc31da44f93d87f4e271b392eae920 size: 5326
++ cd ..
++ cd k8-yaml
++ kubectl apply -f employee-deployment.yml
+deployment.apps/employee unchanged
+service/employee unchanged
+Finished: SUCCESS
