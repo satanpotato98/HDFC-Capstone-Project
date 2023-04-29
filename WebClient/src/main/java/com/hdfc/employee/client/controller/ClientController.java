@@ -17,9 +17,9 @@ public class ClientController {
 	
 	@Autowired
 	RestTemplate rest;
-	@GetMapping("/employee/{id}")
+	@GetMapping("/{id}")
 	public Employee getemployeedetails(@PathVariable int id) {
-		Employee result=rest.getForObject("https://localhost:9090/employee/get/"+id, Employee.class);
+		Employee result=rest.getForObject("https://192.168.49.2:30896/employee/get/"+id, Employee.class);
 		result.setDateOfBirth(Aes256.decrypt(result.getDateOfBirth().toString()));
 		return result;
 	}
