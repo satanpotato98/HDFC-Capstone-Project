@@ -2,12 +2,15 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mariadb-pvc
+  labels:
+    app: mariadb
+    tier: database
 spec:
   accessModes:
-  - ReadWriteOnce
+    - ReadWriteOnce   
   resources:
     requests:
-      storage: 1Gi
+      storage: 1Gi   
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -15,24 +18,25 @@ metadata:
   name: mariadb
   labels:
     app: mariadb
+    tier: database
 spec:
   selector:
     matchLabels:
       app: mariadb
+      tier: database
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
         app: mariadb
+        tier: database
     spec:
       containers:
       - name: mariadb
         image: mariadb:latest
         imagePullPolicy: IfNotPresent
         env:
-        - name: protocol
-          value: TCP
         - name: MARIADB_ROOT_PASSWORD
           value: root
         - name: MARIADB_DATABASE
@@ -42,7 +46,7 @@ spec:
           name: mariadb
         volumeMounts:
         - name: mariadb-persistent-storage
-          mountPath: /var/lib/mariadb
+          mountPath: /var/lib/mysql
       volumes:
       - name: mariadb-persistent-storage
         persistentVolumeClaim:
@@ -51,11 +55,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: mariadb
-spec:
-  selector:
+  name: mariadb  
+  labels:
     app: mariadb
+    tier: database
+spec:
   ports:
-  - name: mariadb
-    port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
+  selector:       
+    app: mariadb
+    tier: database
+  clusterIP: None  

@@ -15,7 +15,6 @@ import com.hdfc.employee.exception.InvalidEmployeeIdException;
 import com.hdfc.employee.service.IEmployeeService;
 import com.hdfc.employee.vo.EmployeeVO;
 
-import jakarta.annotation.PostConstruct;
 
 @RestController
 @RequestMapping("/employee")

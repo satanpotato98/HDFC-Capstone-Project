@@ -18,7 +18,7 @@ public class EmployeeServiceImp implements IEmployeeService {
 
 	@Override
 	public EmployeeVO getEmployeeById(int id) throws InvalidEmployeeIdException {
-		// TODO Auto-generated method stub
+
 		Employee emp=employeeRepo.findById(id).orElse(null);
 		if(emp==null) {
 			throw new InvalidEmployeeIdException();
