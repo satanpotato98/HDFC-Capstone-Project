@@ -34,15 +34,15 @@ public class EmployeeController {
 	}
 	
 	
-	/*
-	 * @RequestMapping(value="/options", method = RequestMethod.OPTIONS)
-	 * ResponseEntity<?> collectionOptions() { return ResponseEntity
-	 * .ok().allow(HttpMethod.GET, HttpMethod.POST, HttpMethod.OPTIONS) .build(); }
-	 * 
-	 * 
-	 * 
-	 * @PostMapping("/add") public Employee addEmployee(@RequestBody EmployeeDTO
-	 * dto) { return empService.addEmployee(dto); }
-	 */
+	
+	  @RequestMapping(value="/options", method = RequestMethod.OPTIONS)
+	  ResponseEntity<?> collectionOptions() { return ResponseEntity
+	  .ok().allow(HttpMethod.GET, HttpMethod.POST, HttpMethod.OPTIONS) .build(); }
+	  
+	  
+	  
+	  @PostMapping("/add") public Employee addEmployee(@RequestBody EmployeeDTO
+	  dto) { return empService.addEmployee(dto); }
+	 
 	 
 }

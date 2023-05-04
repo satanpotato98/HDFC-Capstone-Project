@@ -1,33 +1,38 @@
 Started by user shashwat
-Running as SYSTEM
-Building in workspace /home/raj/.jenkins/workspace/Employee
-[WS-CLEANUP] Deleting project workspace...
-[WS-CLEANUP] Deferred wipeout is used...
-[WS-CLEANUP] Done
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /home/raj/.jenkins/workspace/Employee CICD pipeline
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (poll)
+[Pipeline] git
 The recommended git tool is: NONE
 No credentials specified
-Cloning the remote Git repository
-Cloning repository https://github.com/satanpotato98/HDFC-Capstone-Project.git
- > git init /home/raj/.jenkins/workspace/Employee # timeout=10
-Fetching upstream changes from https://github.com/satanpotato98/HDFC-Capstone-Project.git
+ > git rev-parse --resolve-git-dir /home/raj/.jenkins/workspace/Employee CICD pipeline/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/satanpotato98/HDFC-Capstone-Project # timeout=10
+Fetching upstream changes from https://github.com/satanpotato98/HDFC-Capstone-Project
  > git --version # timeout=10
  > git --version # 'git version 2.39.2'
- > git fetch --tags --force --progress -- https://github.com/satanpotato98/HDFC-Capstone-Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
- > git config remote.origin.url https://github.com/satanpotato98/HDFC-Capstone-Project.git # timeout=10
- > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
-Avoid second fetch
+ > git fetch --tags --force --progress -- https://github.com/satanpotato98/HDFC-Capstone-Project +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
-Checking out Revision 048e6fc73e1d3b9c3d7245d4dc9f781233668eaa (refs/remotes/origin/main)
+Checking out Revision 4124d759dfa5c525ffa9a1455de5181ee4694b54 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f 048e6fc73e1d3b9c3d7245d4dc9f781233668eaa # timeout=10
-Commit message: "YAML files for K8"
- > git rev-list --no-walk 48c711a35f5a9fa5de5d34055b7f1411cd5e0c5d # timeout=10
-[Employee] $ /bin/sh -xe /tmp/jenkins14252180603985042207.sh
+ > git checkout -f 4124d759dfa5c525ffa9a1455de5181ee4694b54 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D main # timeout=10
+ > git checkout -b main 4124d759dfa5c525ffa9a1455de5181ee4694b54 # timeout=10
+Commit message: "CICD Check"
+ > git rev-list --no-walk 683e58642825e7648ab83ff319515d252027ebf3 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (build)
+[Pipeline] sh
 + cd HDFC_CapstoneProject
 + ./gradlew clean build
 Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
-Starting a Gradle Daemon (subsequent builds will be faster)
-> Task :clean UP-TO-DATE
+> Task :clean
 > Task :compileJava
 > Task :processResources
 > Task :classes
@@ -45,8 +50,19 @@ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 > Task :check
 > Task :build
 
-BUILD SUCCESSFUL in 27s
-8 actionable tasks: 7 executed, 1 up-to-date
+BUILD SUCCESSFUL in 18s
+8 actionable tasks: 8 executed
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (build and push docker image)
+[Pipeline] sh
++ cd HDFC_CapstoneProject
++ minikube docker-env
+! Executing "docker container inspect minikube --format={{.State.Status}}" took an unusually long time: 3.608710199s
+* Restarting the docker service may improve performance.
++ eval export DOCKER_TLS_VERIFY="1" export DOCKER_HOST="tcp://192.168.49.2:2376" export DOCKER_CERT_PATH="/home/raj/.minikube/certs" export MINIKUBE_ACTIVE_DOCKERD="minikube" # To point your shell to minikube's docker-daemon, run: # eval $(minikube -p minikube docker-env)
++ export DOCKER_TLS_VERIFY=1 export DOCKER_HOST=tcp://192.168.49.2:2376 export DOCKER_CERT_PATH=/home/raj/.minikube/certs export MINIKUBE_ACTIVE_DOCKERD=minikube
 + ./gradlew bootBuildImage --imageName=employee
 Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 > Task :compileJava UP-TO-DATE
@@ -59,9 +75,9 @@ Picked up _JAVA_OPTIONS: -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true
 Building image 'docker.io/library/employee:latest'
 
  > Pulling builder image 'docker.io/paketobuildpacks/builder:base' ..................................................
- > Pulled builder image 'paketobuildpacks/builder@sha256:6f36759e32b4f14ac345fc2b988277437a5ddb43a086d7b8720d8740ce279988'
+ > Pulled builder image 'paketobuildpacks/builder@sha256:a7e8b473dd368b6251c2389e25a6a6555a83d826726e31e511460bb85b51fe45'
  > Pulling run image 'docker.io/paketobuildpacks/run:base-cnb' ..................................................
- > Pulled run image 'paketobuildpacks/run@sha256:f8dfc4b892edd3185d02e21d1145ebab0e713065837f7d42cbc9577c7489812e'
+ > Pulled run image 'paketobuildpacks/run@sha256:f30b94d1acc0ccd74c416b4c83b59081f9f51a92a80e33793a43eb4f0afe4ceb'
  > Executing lifecycle version v0.16.1
  > Using build cache volume 'pack-cache-a90947dfbf60.build'
 
@@ -159,10 +175,12 @@ Building image 'docker.io/library/employee:latest'
     [creator]         dependencies (39.6 MB)
     [creator]         spring-boot-loader (269.4 KB)
     [creator]         snapshot-dependencies (0.0 B)
-    [creator]         application (74.7 KB)
+    [creator]         application (74.4 KB)
     [creator]       Launch Helper: Reusing cached layer
     [creator]       Spring Cloud Bindings 1.11.0: Reusing cached layer
-    [creator]       Web Application Type: Reusing cached layer
+    [creator]       Web Application Type: Contributing to layer
+    [creator]         Non-web application detected
+    [creator]         Writing env.launch/BPL_JVM_THREAD_COUNT.default
     [creator]       4 application slices
     [creator]       Image labels:
     [creator]         org.opencontainers.image.title
@@ -178,7 +196,8 @@ Building image 'docker.io/library/employee:latest'
     [creator]     Reusing layer 'paketo-buildpacks/spring-boot:spring-cloud-bindings'
     [creator]     Reusing layer 'paketo-buildpacks/spring-boot:web-application-type'
     [creator]     Reusing layer 'buildpacksio/lifecycle:launch.sbom'
-    [creator]     Reusing 5/5 app layer(s)
+    [creator]     Reusing 4/5 app layer(s)
+    [creator]     Adding 1/5 app layer(s)
     [creator]     Reusing layer 'buildpacksio/lifecycle:launcher'
     [creator]     Reusing layer 'buildpacksio/lifecycle:config'
     [creator]     Reusing layer 'buildpacksio/lifecycle:process-types'
@@ -190,7 +209,7 @@ Building image 'docker.io/library/employee:latest'
     [creator]     Adding label 'org.springframework.boot.version'
     [creator]     Setting default process type 'web'
     [creator]     Saving docker.io/library/employee:latest...
-    [creator]     *** Images (55b5fca0e452):
+    [creator]     *** Images (cb289325ebc4):
     [creator]           docker.io/library/employee:latest
     [creator]     Reusing cache layer 'paketo-buildpacks/syft:syft'
     [creator]     Reusing cache layer 'buildpacksio/lifecycle:cache.sbom'
@@ -198,7 +217,7 @@ Building image 'docker.io/library/employee:latest'
 Successfully built image 'docker.io/library/employee:latest'
 
 
-BUILD SUCCESSFUL in 2m 59s
+BUILD SUCCESSFUL in 3m 8s
 5 actionable tasks: 1 executed, 4 up-to-date
 + docker tag employee satanpotato/employee:latest
 + docker push satanpotato/employee:latest
@@ -207,7 +226,7 @@ The push refers to repository [docker.io/satanpotato/employee]
 cc14ff3e32e3: Preparing
 f4475860d332: Preparing
 5f70bf18a086: Preparing
-74119c406c77: Preparing
+749002799746: Preparing
 5f70bf18a086: Preparing
 0345504805f0: Preparing
 3cbc31ec8862: Preparing
@@ -220,58 +239,68 @@ f649a31bd1d8: Preparing
 ec0381c8f321: Preparing
 821b1d46a382: Preparing
 6b2e6eafd42f: Preparing
-019ce594f2e1: Preparing
-025b439bc7f8: Preparing
-451264764f87: Preparing
-0345504805f0: Waiting
-386af292fa49: Preparing
-28894dd426e6: Preparing
-3cbc31ec8862: Waiting
-5e390e8445ae: Preparing
-b7e0fa7bfe7f: Preparing
-5d68794ac8f1: Waiting
+1e765ac4e5f0: Preparing
+f3027c8fd0bc: Preparing
+aca682e14cd0: Preparing
+a1f4f7532d24: Preparing
 fcc507beb4cc: Waiting
-7fbc97c38fad: Waiting
-30a03cb7ff3f: Waiting
-f649a31bd1d8: Waiting
+d44acbb324c9: Preparing
+8c5858159662: Preparing
 bdffd30dc8fd: Waiting
-451264764f87: Waiting
+b7e0fa7bfe7f: Preparing
+30a03cb7ff3f: Waiting
+7fbc97c38fad: Waiting
+f649a31bd1d8: Waiting
 ec0381c8f321: Waiting
-386af292fa49: Waiting
+aca682e14cd0: Waiting
 821b1d46a382: Waiting
-28894dd426e6: Waiting
+3cbc31ec8862: Waiting
+a1f4f7532d24: Waiting
 6b2e6eafd42f: Waiting
-5e390e8445ae: Waiting
-019ce594f2e1: Waiting
+f3027c8fd0bc: Waiting
+d44acbb324c9: Waiting
+0345504805f0: Waiting
+1e765ac4e5f0: Waiting
+8c5858159662: Waiting
 b7e0fa7bfe7f: Waiting
-025b439bc7f8: Waiting
 1dc94a70dbaa: Layer already exists
-74119c406c77: Layer already exists
-f4475860d332: Layer already exists
-5f70bf18a086: Layer already exists
 cc14ff3e32e3: Layer already exists
+5f70bf18a086: Layer already exists
+f4475860d332: Layer already exists
+0345504805f0: Layer already exists
 3cbc31ec8862: Layer already exists
 5d68794ac8f1: Layer already exists
-0345504805f0: Layer already exists
 fcc507beb4cc: Layer already exists
 30a03cb7ff3f: Layer already exists
 bdffd30dc8fd: Layer already exists
+f649a31bd1d8: Layer already exists
+749002799746: Pushed
 7fbc97c38fad: Layer already exists
 821b1d46a382: Layer already exists
-f649a31bd1d8: Layer already exists
 ec0381c8f321: Layer already exists
 6b2e6eafd42f: Layer already exists
-025b439bc7f8: Layer already exists
-019ce594f2e1: Layer already exists
-451264764f87: Layer already exists
-386af292fa49: Layer already exists
-5e390e8445ae: Layer already exists
+1e765ac4e5f0: Layer already exists
+f3027c8fd0bc: Layer already exists
+a1f4f7532d24: Layer already exists
+aca682e14cd0: Layer already exists
+d44acbb324c9: Layer already exists
+8c5858159662: Layer already exists
 b7e0fa7bfe7f: Layer already exists
-28894dd426e6: Layer already exists
-latest: digest: sha256:bc9a5246659a8fdb046fd05b9786698ffffc31da44f93d87f4e271b392eae920 size: 5326
-+ cd ..
+latest: digest: sha256:13b07340a93539ae60e9442e841a9ea5f0c06f1916c2ec17a8dc43c53789a533 size: 5327
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (deployment on kubernetes)
+[Pipeline] sh
 + cd k8-yaml
++ kubectl delete deployment employee
+deployment.apps "employee" deleted
 + kubectl apply -f employee-deployment.yml
-deployment.apps/employee unchanged
+deployment.apps/employee created
 service/employee unchanged
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
 Finished: SUCCESS
