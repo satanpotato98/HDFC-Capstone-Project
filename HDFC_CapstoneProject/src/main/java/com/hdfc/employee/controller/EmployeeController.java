@@ -31,8 +31,8 @@ public class EmployeeController {
 	}
 	
 	
-	@PostMapping("/add")
-	public Employee addEmployee(@RequestBody EmployeeDTO dto) {
-		return empService.addEmployee(dto);
-	}
+	/*
+	 * @PostMapping("/add") public Employee addEmployee(@RequestBody EmployeeDTO
+	 * dto) { return empService.addEmployee(dto); }
+	 */
 }

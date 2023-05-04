@@ -34,7 +34,7 @@ public class Clientconfig {
 	            sslContext = SSLContextBuilder.create().loadTrustMaterial(ResourceUtils.getFile(location), pass.toCharArray())
 	                    .build();
 	        }catch (Exception e){
-
+	        	e.printStackTrace();
 	        }
 	        SSLConnectionSocketFactory csf = new SSLConnectionSocketFactory(sslContext,new LocalHostnameVerifier());
 	        CloseableHttpClient httpclient = HttpClients.custom().setSSLSocketFactory(csf).build();
