@@ -1,0 +1,37 @@
+2023-05-05T14:09:41.875+05:30  INFO 5060 --- [main] c.h.e.HdfcCapstoneProjectApplication     : Starting HdfcCapstoneProjectApplication using Java 17.0.5 with PID 5060 (/home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject/bin/main started by raj in /home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject)
+2023-05-05T14:09:41.880+05:30  INFO 5060 --- [main] c.h.e.HdfcCapstoneProjectApplication     : No active profile set, falling back to 1 default profile: "default"
+2023-05-05T14:09:42.899+05:30  INFO 5060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-05-05T14:09:42.946+05:30  INFO 5060 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 1 JPA repository interfaces.
+2023-05-05T14:09:43.534+05:30  INFO 5060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 9090 (https)
+2023-05-05T14:09:43.545+05:30  INFO 5060 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-05-05T14:09:43.545+05:30  INFO 5060 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-05-05T14:09:43.658+05:30  INFO 5060 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-05-05T14:09:43.659+05:30  INFO 5060 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1728 ms
+2023-05-05T14:09:44.054+05:30  INFO 5060 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-05-05T14:09:44.267+05:30  INFO 5060 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-05-05T14:09:44.822+05:30  INFO 5060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-05-05T14:09:44.900+05:30  INFO 5060 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@173511ff
+2023-05-05T14:09:44.902+05:30  INFO 5060 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-05-05T14:09:44.932+05:30  INFO 5060 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2023-05-05T14:09:45.554+05:30  INFO 5060 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-05-05T14:09:45.559+05:30  INFO 5060 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-05-05T14:09:45.820+05:30  WARN 5060 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-05-05T14:09:46.542+05:30  INFO 5060 --- [main] o.a.t.util.net.NioEndpoint.certificate   : Connector [https-jsse-nio-9090], TLS virtual host [_default_], certificate type [UNDEFINED] configured from [file:/home/raj/Desktop/HDFC-Capstone-Project/HDFC_CapstoneProject/bin/main/employee.p12] using alias [employee_ssl] and with trust store [null]
+2023-05-05T14:09:46.552+05:30  INFO 5060 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 9090 (https) with context path ''
+2023-05-05T14:09:46.560+05:30  INFO 5060 --- [main] c.h.e.HdfcCapstoneProjectApplication     : Started HdfcCapstoneProjectApplication in 5.195 seconds (process running for 5.893)
+2023-05-05T14:10:38.291+05:30  INFO 5060 --- [https-jsse-nio-9090-exec-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-05-05T14:10:38.291+05:30  INFO 5060 --- [https-jsse-nio-9090-exec-5] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-05-05T14:10:38.292+05:30  INFO 5060 --- [https-jsse-nio-9090-exec-5] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2023-05-05T14:10:38.316+05:30  WARN 5060 --- [https-jsse-nio-9090-exec-5] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: com.hdfc.employee.controller.EmployeeController
+2023-05-05T14:10:38.520+05:30 DEBUG 5060 --- [https-jsse-nio-9090-exec-5] org.hibernate.SQL                        : select e1_0.employeeid,e1_0.date_of_birth,e1_0.employee_name from employee e1_0 where e1_0.employeeid=?
+2023-05-05T14:10:47.716+05:30 DEBUG 5060 --- [https-jsse-nio-9090-exec-6] org.hibernate.SQL                        : select e1_0.employeeid,e1_0.date_of_birth,e1_0.employee_name from employee e1_0 where e1_0.employeeid=?
+2023-05-05T14:10:57.196+05:30 DEBUG 5060 --- [https-jsse-nio-9090-exec-7] org.hibernate.SQL                        : select e1_0.employeeid,e1_0.date_of_birth,e1_0.employee_name from employee e1_0 where e1_0.employeeid=?
+2023-05-05T14:11:01.617+05:30 DEBUG 5060 --- [https-jsse-nio-9090-exec-9] org.hibernate.SQL                        : select e1_0.employeeid,e1_0.date_of_birth,e1_0.employee_name from employee e1_0 where e1_0.employeeid=?
+2023-05-05T14:11:07.133+05:30 DEBUG 5060 --- [https-jsse-nio-9090-exec-10] org.hibernate.SQL                        : select e1_0.employeeid,e1_0.date_of_birth,e1_0.employee_name from employee e1_0 where e1_0.employeeid=?
+2023-05-05T14:11:15.659+05:30  WARN 5060 --- [https-jsse-nio-9090-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; For input string: "ab"]
+2023-05-05T14:12:06.492+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-05-05T14:12:06.495+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-05-05T14:12:06.496+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-05-05T14:12:06.503+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-05-05T14:12:06.504+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-05-05T14:12:06.507+05:30  INFO 5060 --- [RMI TCP Connection(6)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
